@@ -186,7 +186,7 @@ def gdisconnect():
         del login_session['picture']
 
         print 'Before                                                           '
-        response = make_response(json.dumps('Successfully disconnected.', 200))
+        response = make_response(json.dumps('Successfully disconnected.'), 200)
         print 'After                                                            '
         response.headers['Content-Type'] = 'application/json'
         flash(response)

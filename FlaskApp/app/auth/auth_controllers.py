@@ -167,18 +167,15 @@ def gconnect():
 def gdisconnect():
         # Only disconnect a connected user.
     credentials = login_session.get('credentials')
-    print credentials
     if credentials is None:
         response = make_response(
             json.dumps('Current user not connected.'), 401)
         response.headers['Content-Type'] = 'application/json'
         return response
     access_token = credentials
-    print access_token
     url = 'https://accounts.google.com/o/oauth2/revoke?token=%s' % access_token
     h = httplib2.Http()
     result = h.request(url, 'GET')[0]
-    print result
 
     if result['status'] == '200':
         # Reset the user's sesson.
@@ -188,7 +185,7 @@ def gdisconnect():
         del login_session['email']
         del login_session['picture']
 
-        response = make_response(json.dumps('Successfully disconnected.'), 200)
+        response = make_response(json.dumps('Successfully disconnected.', 200)
         response.headers['Content-Type'] = 'application/json'
         flash(response)
         return redirect('/records')

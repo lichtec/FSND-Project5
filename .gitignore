@@ -2,3 +2,6 @@
 /.ssh/grader.pub
 /.ssh/grader.txt
 /.ssh/udacity_key.rsa
+/FlaskApp/config/client_secrets.json
+/FlaskApp/fb_client_secrets.json
+/FlaskApp/config.py

@@ -1,0 +1,22 @@
+{% extends "main.html" %} {% block content %} {% include "header.html" %}
+<div class="row text-center">
+    {% for record in records %}
+    <div class="col-md-3 col-sm-6">
+        <div class="thumbnail">
+            <img src="{{ record.record_image }}" alt="">
+            <div class="caption">
+                    <h2 class="item_title">{{record.title}}</h2>
+                    <h4>{{record.artist_name}}</h4>
+                    <h6>{{record.year}}</h6>
+                <p>
+                    <a href="/records/{{ record.id }}" class="btn btn-default">More Info</a>
+                </p>
+            </div>
+        </div>
+
+        {% if loop.index is divisibleby 3 %} {% endif %}
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}

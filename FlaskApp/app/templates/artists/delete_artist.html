@@ -1,0 +1,16 @@
+{% extends "main.html" %} {% block content %} {% include "header.html" %}
+<h2> Are you sure you want to delete {{artist.artist_name}}? </h2>
+<h3> This will impact the following Records:</h3> {% for record in records %}
+<h6>{{ record.title }}</h6> {% endfor %}
+<form action="#" method='post'>
+
+    <button type="submit" class="btn btn-default delete" id="submit" type="submit">
+        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete</button>
+    <a href='/records'>
+        <button class="btn btn-default delete">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+    </a>
+
+</form>
+
+{% endblock %}

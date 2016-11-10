@@ -1,0 +1,18 @@
+{% extends "main.html" %} {% block content %} {% include "header.html" %}
+<div class="row text-center">
+    {% for artist in artists %}
+    <div class="col-md-3 col-sm-6 hero-feature">
+        <div class="thumbnail">
+            <img src="{{ artist.artist_image }}" alt="">
+            <div class="caption">
+                <h1 class="item_title">{{artist.artist_name}}</h1>
+                <p>
+                    <a href="/artists/{{ artist.id }}" class="btn btn-default">More Info</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}

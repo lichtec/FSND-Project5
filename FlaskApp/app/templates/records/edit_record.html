@@ -1,0 +1,55 @@
+{% extends "main.html" %} {% block content %} {% include "header.html" %}
+<div class="col-md-11 col-md-offset-1 padding-none">
+    <h1>New Record</h1>
+</div>
+<div class="row">
+    <div class="col-md-6 col-md-offset-1 padding-top">
+        <form action="#" method="post">
+            <div class="form-group">
+                <div class="row marketing">
+                    <label for="title">Title:</label>
+                    <input type="text" class="form-control" maxlength="100" name="title" placeholder="{{ record.title }}"></input>
+                </div>
+                <div class="row marketing">
+                    <div class="form-group">
+                        <label for="artist_Sel">Artist:</label>
+                        <select class="form-control" id="artist_Sel" name='artist_Sel'>
+                            {% for artist in artists %}
+                            <option {% if record.artist_name==artist.artist_name %} SELECTED {% endif %}>{{ artist.artist_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="row marketing">
+                    <div class="form-group">
+                        <label for="genre_Sel">Genre:</label>
+                        <select class="form-control" id="genre_Sel" name='genre_Sel'>
+                            {% for genre in genres %}
+                            <option{% if record.genre_name==genre.genre_name %} SELECTED {% endif %}>{{ genre.genre_name }}</option>
+                                {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="row marketing">
+                    <label for="year">Year</label>
+                    <input type="text" class="form-control" maxlength="4" name="year" placeholder="{{ record.year }}"></input>
+                </div>
+                <div class="row marketing" style="text-align:center vertical-align:middle">
+                    <label for="description">Description:</label>
+                    <textarea class="form-control" maxlength="250" rows="3" name="description" placeholder="{{ record.description }}"></textarea>
+                </div>
+                <div class="row marketing">
+                    <label for="record_image">Record Image:</label>
+                    <input type="text" class="form-control" maxlength="100" name="record_image" placeholder={{ record.record_image }}></input>
+                </div>
+                <br>
+                <div class="padding-bottom"></div>
+                <div class="row marketing">
+                    <button type="submit" class="btn btn-default" id="submit" type="submit">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Update</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "main.html" %} {% block content %} {% include "header.html" %}
+<div class="row text-center">
+    <div class="col-md-10 col-sm-10 hero-feature">
+        <div class="thumbnail">
+            <img src="{{ genre.genre_image }}" alt="">
+            <div class="caption">
+                <h1>{{genre.genre_name}}</h1>
+                <p>{{genre.description}}</p>
+                <h2>Current Artists</h2> {% for artist in artists %}
+                <h3><a href="/artists/{{ artist.id }}">{{ artist.artist_name }}</a></h3> {% endfor %}
+            </div>
+            {% if loggedIn %} <a href="/genres/{{ genre.id }}/edit" class="btn btn-default">Edit Genre</a><a href="/genres/{{ genre.id }}/delete" class="btn btn-default">Delete Genre</a> {% endif %}
+        </div>
+    </div>
+    <div class="col-md-1 col-sm-1 hero-feature"></div>
+    {% endblock %}

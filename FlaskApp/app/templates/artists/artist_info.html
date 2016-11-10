@@ -1,0 +1,14 @@
+{% extends "main.html" %} {% block content %} {% include "header.html" %}
+<div class="row text-center">
+    <div class="col-md-10 col-sm-10 hero-feature">
+        <div class="thumbnail">
+            <img src="{{ artist.artist_image }}" alt="">
+            <div class="caption">
+                <h1>{{artist.artist_name}}</h1>
+                <h2>Current Records</h2> {% for record in records %}
+                <h3><a href="/records/{{ record.id }}">{{ record.title }}</a></h3> {% endfor %} {% if loggedIn %} <a href="/artists/{{ artist.id }}/edit" class="btn btn-default">Edit Artist</a><a href="/artists/{{ artist.id }}/delete" class="btn btn-default">Delete Artist</a> {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1 col-sm-1 hero-feature"></div>
+    {% endblock %}

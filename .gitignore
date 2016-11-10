@@ -5,3 +5,4 @@
 /FlaskApp/config/client_secrets.json
 /FlaskApp/fb_client_secrets.json
 /FlaskApp/config.py
+/FlaskApp/app/auth/config/client_secrets.json
